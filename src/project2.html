@@ -176,6 +176,16 @@
                       
        loadProduct(filteredProducts);
       }
+      function ListChange(){
+       let listitem = document.getElementById("list").value;
+        fetch(`https://fakestoreapi.noksha.dev/api/categories`)
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(products){
+            
+        })
+      }
     </script>
 </head>
 <body onload="bodyload()">
@@ -187,7 +197,7 @@
                 <input type="text" class="form-control" id="txtsearch" onkeyup="Searchproducts()" placeholder="Search products">
                 <button class="bi bi-search btn btn-warning"></button>
             </div>
-            <nav class="d-flex list-unstyled">
+            <nav class="d-flex list-unstyled" id="list" onchange="ListChange()">
                 <li>Electronics</li>
                 <li>Casuals</li>
                 <li>Footwear</li>
