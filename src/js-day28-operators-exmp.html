@@ -15,6 +15,9 @@
         dd {
             background-color: bisque;
         }
+        dt {
+            color: red;
+        }
         
     input {
     width: 100%;
@@ -87,7 +90,7 @@
 
         <div class="accordion-item">
             <div class="accordion-header">
-                <button class="btn btn-danger w-100 mt-2" data-bs-toggle="collapse" data-bs-target="#meal">Select your meal</button>
+                <button class="btn btn-success w-100 mt-2" data-bs-toggle="collapse" data-bs-target="#meal">Select your meal</button>
 
             </div>
             <div class="accordion-collapse collapse" id="meal">
@@ -95,19 +98,19 @@
                 <div class="accordion-body">
                     <div class="row">
                         <div class="col-6">
-                             <h3>OMG Burger</h3>
-                            <img src="/public/images/food.jpg" width="200" height="200">
+                             <h3 class="fw-bold bg-light w-50 p-2 text-center">OMG Burger</h3>
+                            <img src="/public/images/food.jpg" width="327" height="250">
                             <div>
                                 <input type="radio" id="optBurger" value="Burger" class="form-check-input" name="food">
-                            <label class="form-label text-center">120/-</label>
+                            <label class="form-label text-center bg-light text-danger fw-bold fs-4 round rounded-2 mt-2">120/-</label>
                             </div>
                         </div>
                         <div class="col-6">
-                             <h3>Shuwarma</h3>
-                           <img src="/public/images/Shawarma-7-1022x1536.jpg" width="200" height="200">
+                             <h3 class="fw-bold bg-light w-50 p-2 text-center">Shuwarma</h3>
+                           <img src="/public/images/Shawarma-7-1022x1536.jpg" width="327" height="250">
                            <div>
                             <input type="radio" id="optShuwarma" value="Shuwarma" class="form-check-input" name="food">
-                           <label class="form-label text-center">100/-</label>
+                           <label class="form-label text-center bg-light text-danger fw-bold fs-4 round rounded-2 mt-2">100/-</label>
                            </div>
                         </div>
 
@@ -132,6 +135,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3>Your Bill Summary</h3>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <dl>
