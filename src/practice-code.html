@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>Document</title>
+    <style>
+        select {
+            width: 300px;
+            height: 80;
+   
+        };
+        main-container{
+            border: 2px solid red;
+        }
+        
+    </style>
+    <script>
+    let cities = ["Parbhani","Aurangabad","Hydrabad"]
+
+    function bodyload() {
+        document.getElementById("txtCity").value= "";
+        document.getElementById("lstCities").innerHTML= "";
+        cities.map(function(cities) {
+            let option = document.createElement("option");
+            option.innerHTML = cities
+
+            document.getElementById("lstCities").appendChild(option)
+        })
+    }
+
+
+    function Addcity(){
+        
+        let txtcity = document.getElementById("txtCity").value;
+        if(cities.includes(txtcity)){
+        alert(`${txtcity} is allready added!!`)
+        }else if(txtcity.length=== 0){
+          alert("Please Enter city name")       
+        }
+        else
+        {
+
+            cities.push(txtcity);
+            bodyload()
+        }
+        
+
+    }
+    
+    function DeleteCity() {
+        let selectedcity = document.getElementById("lstCities").value;
+        let indexofcity = cities.indexOf(selectedcity);
+        flag = confirm(`are you sure you want to delete ${selectedcity}!`);
+    
+        if(flag == true ){
+            cities.splice(indexofcity,1)
+            bodyload();
+    
+        }
+    
+
+    }
+
+    function sorting(){
+        cities.sort()
+        bodyload()
+    }
+    function sortdec() {
+        cities.sort();
+        cities.reverse()
+        bodyload()
+    }
+
+
+    function ClearClick() {
+        if(cities.length == 0){
+            alert("There is no cities to remove")
+        }else{
+            cities.length = 0;
+        bodyload();
+        }
+    }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div class="main-container p-3">
+        <div class="input-group">
+        <div><input type="text" class="form-control" id="txtCity"></div>
+        <button onclick="Addcity()" class="btn btn-warning">Add</button>
+    </div>
+
+    <div class="m-2">
+        <button class="btn btn-warning bi bi-sort-alpha-up" onclick="sorting()"></button>
+        <button class="btn btn-secondary bi bi-sort-alpha-down" onclick="sortdec()"></button>
+    </div>
+    <div class="mt-3">
+        <select id="lstCities" size="3" class="form-select w-50" onchange="citychange()">
+
+        </select>
+    </div>
+    <p id="length"></p>
+    <button onclick="DeleteCity()" class="btn btn-danger">Remove</button>
+    <button onclick="ClearClick()" class="btn btn-success">Clear All</button>
+    </div>
+</body>
+</html>
